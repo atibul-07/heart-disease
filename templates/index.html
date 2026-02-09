@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        *{
+            padding: 0;
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .box{
+            height: 90vh;
+            width: 30vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 30px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: #ffffff;
+            box-shadow: 0px 8px 20px rgba(0,0,0,0.08);
+        
+        }
+        h2{
+            margin: 10px;
+        }
+        .info{
+            margin:7px;
+            border-radius: 1px solid #ccc;
+        }
+        .btn{
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        button{
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            width: 15vw;
+        }
+        .box button:hover {
+            background-color: #45a049;
+        }
+        .result{
+            font-size: 1.5em;
+            color: #4CAF50;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <h2>Heart Disease Predictor</h2>
+            <form action="/predict" method="post">
+                <label for="age">Age:</label>
+                <input type="text" class="info"  name="age"  required><br>
+
+                <label for="sex">Sex:</label>
+                <input type="text" class="info" name="sex"  required><br>
+
+                <label for="cp">Chest pain type :</label>
+                <input type="text" class="info" name="cp"  required><br> 
+                <label for="trestbps">BP :</label>
+                <input type="text" class="info" name="trestbps"  required><br> 
+
+                <label for="chol">Cholesterol :</label>
+                <input type="text" class="info" name="chol"  required><br>
+
+                <label for="fbs">Fasting Blood Sugar:</label>
+                <input type="text" class="info" name="fbs"  required><br> 
+
+                <label for="restecg">Rest ECG :</label>
+                <input type="text" class="info" name="restecg"  required><br>
+
+                <label for="thalach">Max Heart Rate :</label>
+                <input type="text" class="info" name="thalach"  required><br> 
+
+                <label for="exang">Exercise Induced Angina :</label>
+                <input type="text" class="info" name="exang"  required><br>
+
+                <label for="oldpeak">Oldpeak :</label>
+                <input type="text" class="info" name="oldpeak"  required><br>
+
+                <label for="slope">Slope :</label>
+                <input type="text" class="info" name="slope"  required><br>
+
+                <label for="ca">CA :</label>
+                <input type="text" class="info" name="ca"  required><br>
+
+                <label for="thal">Thal :</label>
+                <input type="text" class="info" name="thal"  required><br>
+                <div class="btn">
+                    <button type="submit">Predict</button>
+                </div>
+            </form>
+            {% if prediction_text %}
+            <div class="result">{{ prediction_text }}</div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
